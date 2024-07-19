@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px; /* Adjust max-width as needed */
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box; /* Ensures padding and border are included in width */
+        }
+        .form-group button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .form-group button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Air Ticket Booking</h1>
+</header>
+
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="departure-city">Departure City</label>
+            <select id="departure-city" name="departure-city">
+                <!-- Options here -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="arrival-city">Arrival City</label>
+            <select id="arrival-city" name="arrival-city">
+                <!-- Options here -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="departure-date">Departure Date</label>
+            <input type="date" id="departure-date" name="departure-date">
+        </div>
+        <div class="form-group">
+            <label for="return-date">Return Date</label>
+            <input type="date" id="return-date" name="return-date">
+        </div>
+        <div class="form-group">
+            <label for="passengers">Number of Passengers</label>
+            <select id="passengers" name="passengers">
+                <option value="1">1 Passenger</option>
+                <option value="2">2 Passengers</option>
+                <option value="3">3 Passengers</option>
+                <option value="4">4 Passengers</option>
+                <option value="5">5 Passengers</option>
+                <option value="6">6 Passengers</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit">Search Flights</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

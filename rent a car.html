@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent a Car</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .car {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .car h2 {
+            margin-top: 0;
+        }
+        .car p {
+            margin: 10px 0;
+        }
+        .booking-form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Rent a Car</h1>
+</header>
+
+<div class="container">
+    <div class="car">
+        <h2>Economy Car</h2>
+        <p>Price: $30 per day</p>
+        <p>Description: A compact and fuel-efficient car, perfect for city driving.</p>
+    </div>
+
+    <div class="car">
+        <h2>SUV</h2>
+        <p>Price: $60 per day</p>
+        <p>Description: A spacious and comfortable SUV, ideal for family trips.</p>
+    </div>
+
+    <div class="car">
+        <h2>Luxury Car</h2>
+        <p>Price: $120 per day</p>
+        <p>Description: A premium car offering top-notch comfort and performance.</p>
+    </div>
+
+    <div class="booking-form">
+        <h2>Book Your Car</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="car-type">Select Car</label>
+                <select id="car-type" name="car-type">
+                    <option value="economy">Economy Car</option>
+                    <option value="suv">SUV</option>
+                    <option value="luxury">Luxury Car</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="pickup-date">Pick-up Date</label>
+                <input type="date" id="pickup-date" name="pickup-date">
+            </div>
+            <div class="form-group">
+                <label for="dropoff-date">Drop-off Date</label>
+                <input type="date" id="dropoff-date" name="dropoff-date">
+            </div>
+            <div class="form-group">
+                <button type="submit">Book Now</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

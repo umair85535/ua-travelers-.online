@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group textarea,
+        .form-group select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .form-group button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group button:hover {
+            background: #0056b3;
+        }
+        /* Navigation bar styles */
+        .navbar {
+            background-color: #4CAF50; /* Unique color scheme */
+            overflow: hidden;
+            display: flex;
+            justify-content: center; /* Center align horizontally */
+        }
+        .navbar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .navbar a:hover {
+            background-color: #45a049; /* Darker shade on hover */
+            color: white;
+        }
+        /* Specific styles for Hotel Booking form */
+        #booking-form {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        #booking-form h2 {
+            margin-top: 0;
+            color: #007BFF;
+        }
+        /* Specific styles for Customer Information form */
+        .customer-info-container {
+            display: none; /* Initially hidden */
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .customer-info-container h2 {
+            margin-top: 0;
+            color: #007BFF;
+        }
+        /* WhatsApp button styles */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: #fff;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 9999; /* Ensure it's above other content */
+        }
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#air-tickets">Air Tickets</a>
+        <a href="#visit-visa">Visit Visa</a>
+    </div>
+</header>
+
+<div class="container">
+    <!-- Hotel Booking Form -->
+    <form id="booking-form">
+        <h2>Hotel Booking</h2>
+        <div class="form-group">
+            <label for="city">Select a City:</label>
+            <select id="city" class="city-select" required>
+                <option value="">Select a city</option>
+                <option value="1">New York</option>
+                <option value="2">London</option>
+                <option value="3">Paris</option>
+                <option value="4">Tokyo</option>
+                <option value="5">Dubai</option>
+                <option value="6">Sydney</option>
+                <option value="7">Rome</option>
+                <option value="8">Singapore</option>
+                <option value="9">Barcelona</option>
+                <option value="10">Berlin</option>
+                <option value="11">Mumbai</option>
+                <option value="12">Cairo</option>
+                <option value="13">Moscow</option>
+                <option value="14">Rio de Janeiro</option>
+                <option value="15">Toronto</option>
+            </select>
+        </div>
+        <div class="form-group" id="hotel-group" style="display: none;">
+            <label for="hotel">Select a Hotel:</label>
+            <select id="hotel" class="hotel-select" required>
+                <!-- Options populated dynamically -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="checkin">Check-in Date:</label>
+            <input type="date" id="checkin" class="checkin-date" required>
+        </div>
+        <div class="form-group">
+            <label for="checkout">Check-out Date:</label>
+            <input type="date" id="checkout" class="checkout-date" required>
+        </div>
+        <div class="form-group">
+            <button type="button" id="book-now-btn">Book Now</button>
+        </div>
+    </form>
+
+    <!-- Customer Information Form (Initially hidden) -->
+    <div class="customer-info-container" id="customer-info">
+        <h2>Customer Information Form</h2>
+        <form id="customer-form">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="father-name">Father's Name:</label>
+                <input type="text" id="father-name" name="father-name" required>
+            </div>
+            <div class="form-group">
+                <label for="passport">Passport Number:</label>
+                <input type="text" id="passport" name="passport" required>
+            </div>
+            <div class="form-group">
+                <label for="cnic">CNIC Number:</label>
+                <input type="text" id="cnic" name="cnic" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="details">Additional Details:</label>
+                <textarea id="details" name="details" rows="4"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <!-- Your footer content -->
+</footer>
+
+<!-- WhatsApp Button -->
+<a class="whatsapp-btn" href="https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER_HERE&text=Hello%21%20I%27d%20like%20to%20get%20in%20touch%20with%20you." target="_blank">
+    <img src="whatsapp-icon.png" alt="WhatsApp">
+</a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const citySelect = document.getElementById('city');
+        const hotelSelect = document.getElementById('hotel');
+        const hotelGroup = document.getElementById('hotel-group');
+        const bookNowBtn = document.getElementById('book-now-btn');
+        const bookingForm = document.getElementById('booking-form');
+        const customerInfoForm = document.getElementById('customer-info');
+        
+        // Hotel data by city (famous hotel names)
+        const hotelsByCity = {
+            1: ['The Plaza', 'The Peninsula', 'The Waldorf Astoria'],
+            2: ['The Ritz London', 'Claridge\'s', 'The Savoy'],
+            3: ['Four Seasons Hotel George V', 'Le Bristol Paris', 'Shangri-La Hotel'],
+            4: ['Park Hyatt Tokyo', 'Hotel Chinzanso Tokyo', 'The Prince Gallery Tokyo Kioicho'],
+            5: ['Burj Al Arab', 'Atlantis The Palm', 'Jumeirah Beach Hotel'],
+            6: ['Sydney Harbour Marriott Hotel', 'Shangri-La Hotel Sydney', 'Park Hyatt Sydney'],
+            7: ['Hotel Eden Rome', 'Hotel Hassler', 'Rome Cavalieri'],
+            8: ['Marina Bay Sands', 'The Ritz-Carlton Millenia Singapore', 'Mandarin Oriental Singapore'],
+            9: ['Hotel Arts Barcelona', 'W Barcelona', 'Majestic Hotel & Spa Barcelona'],
+            10: ['Hotel Adlon Kempinski', 'The Westin Grand Berlin', 'Regent Berlin'],
+            11: ['The Taj Mahal Palace', 'The Oberoi Mumbai', 'ITC Grand Central'],
+            12: ['Four Seasons Hotel Cairo', 'Sofitel Cairo Nile El Gezirah', 'The Nile Ritz-Carlton'],
+            13: ['Four Seasons Hotel Moscow', 'The Ritz-Carlton Moscow', 'Hotel Baltschug Kempinski Moscow'],
+            14: ['Belmond Copacabana Palace', 'Hotel Fasano Rio de Janeiro', 'JW Marriott Hotel Rio de Janeiro'],
+            15: ['The Ritz-Carlton Toronto', 'Fairmont Royal York', 'Shangri-La Hotel Toronto'],
+        };
+
+        // Random prices for hotels
+        const hotelPrices = {
+            'The Plaza': Math.floor(Math.random() * (800 - 500 + 1)) + 500,
+            'The Peninsula': Math.floor(Math.random() * (700 - 450 + 1)) + 450,
+            'The Waldorf Astoria': Math.floor(Math.random() * (900 - 600 + 1)) + 600,
+            'The Ritz London': Math.floor(Math.random() * (1000 - 700 + 1)) + 700,
+            'Claridge\'s': Math.floor(Math.random() * (900 - 600 + 1)) + 600,
+            'The Savoy': Math.floor(Math.random() * (950 - 550 + 1)) + 550,
+            'Four Seasons Hotel George V': Math.floor(Math.random() * (1200 - 800 + 1)) + 800,
+            'Le Bristol Paris': Math.floor(Math.random() * (1100 - 750 + 1)) + 750,
+            'Shangri-La Hotel': Math.floor(Math.random() * (1000 - 600 + 1)) + 600,
+            'Park Hyatt Tokyo': Math.floor(Math.random() * (950 - 550 + 1)) + 550,
+            'Hotel Chinzanso Tokyo': Math.floor(Math.random() * (900 - 600 + 1)) + 600,
+            'The Prince Gallery Tokyo Kioicho': Math.floor(Math.random() * (1000 - 650 + 1)) + 650,
+            'Burj Al Arab': Math.floor(Math.random() * (1500 - 1000 + 1)) + 1000,
+            'Atlantis The Palm': Math.floor(Math.random() * (1200 - 800 + 1)) + 800,
+            'Jumeirah Beach Hotel': Math.floor(Math.random() * (1100 - 700 + 1)) + 700,
+            'Sydney Harbour Marriott Hotel': Math.floor(Math.random() * (800 - 500 + 1)) + 500,
+            'Shangri-La Hotel Sydney': Math.floor(Math.random() * (900 - 600 + 1)) + 600,
+            'Park Hyatt Sydney': Math.floor(Math.random() * (1000 - 700 + 1)) + 700,
+            'Hotel Eden Rome': Math.floor(Math.random() * (1000 - 650 + 1)) + 650,
+            'Hotel Hassler': Math.floor(Math.random() * (1100 - 700 + 1)) + 700,
+            'Rome Cavalieri': Math.floor(Math.random() * (1200 - 800 + 1)) + 800,
+            'Marina Bay Sands': Math.floor(Math.random() * (1500 - 1000 + 1)) + 1000,
+            'The Ritz-Carlton Millenia Singapore': Math.floor(Math.random() * (1200 - 800 + 1)) + 800,
+            'Mandarin Oriental Singapore': Math.floor(Math.random() * (1300 - 900 + 1)) + 900,
+            'Hotel Arts Barcelona': Math.floor(Math.random() * (1000 - 700 + 1)) + 700,
+            'W Barcelona': Math.floor(Math.random() * (1100 - 750 + 1)) + 750,
+            'Majestic Hotel & Spa Barcelona': Math.floor(Math.random() * (1200 - 800 + 1)) + 800,
+            'Hotel Adlon Kempinski': Math.floor(Math.random() * (1100 - 700 + 1)) + 700,
+            'The Westin Grand Berlin': Math.floor(Math.random() * (1000 - 650 + 1)) + 650,
+            'Regent Berlin': Math.floor(Math.random() * (1200 - 800 + 1)) + 800,
+            'The Taj Mahal Palace': Math.floor(Math.random() * (1200 - 800 + 1)) + 800,
+            'The Oberoi Mumbai': Math.floor(Math.random() * (1100 - 700 + 1)) + 700,
+            'ITC Grand Central': Math.floor(Math.random() * (1000 - 600 + 1)) + 600,
+            'Four Seasons Hotel Cairo': Math.floor(Math.random() * (900 - 600 + 1)) + 600,
+            'Sofitel Cairo Nile El Gezirah': Math.floor(Math.random() * (1000 - 650 + 1)) + 650,
+            'The Nile Ritz-Carlton': Math.floor(Math.random() * (1100 - 750 + 1)) + 750,
+            'Four Seasons Hotel Moscow': Math.floor(Math.random() * (1200 - 800 + 1)) + 800,
+            'The Ritz-Carlton Moscow': Math.floor(Math.random() * (1100 - 700 + 1)) + 700,
+            'Hotel Baltschug Kempinski Moscow': Math.floor(Math.random() * (1000 - 600 + 1)) + 600,
+            'Belmond Copacabana Palace': Math.floor(Math.random() * (1400 - 900 + 1)) + 900,
+            'Hotel Fasano Rio de Janeiro': Math.floor(Math.random() * (1200 - 800 + 1)) + 800,
+            'JW Marriott Hotel Rio de Janeiro': Math.floor(Math.random() * (1100 - 700 + 1)) + 700,
+            'The Ritz-Carlton Toronto': Math.floor(Math.random() * (1300 - 900 + 1)) + 900,
+            'Fairmont Royal York': Math.floor(Math.random() * (1200 - 800 + 1)) + 800,
+            'Shangri-La Hotel Toronto': Math.floor(Math.random() * (1000 - 600 + 1)) + 600,
+        };
+
+        // Function to populate hotels based on selected city
+        function populateHotels(cityId) {
+            // Clear previous options
+            hotelSelect.innerHTML = '';
+            
+            // Add default option
+            const defaultOption = document.createElement('option');
+            defaultOption.text = 'Select a hotel';
+            hotelSelect.add(defaultOption);
+
+            // Add hotels for the selected city
+            hotelsByCity[cityId].forEach(hotel => {
+                const option = document.createElement('option');
+                option.text = hotel + ' - $' + hotelPrices[hotel] + '/day'; // Display hotel name and price
+                hotelSelect.add(option);
+            });
+
+            // Show hotel group
+            hotelGroup.style.display = 'block';
+        }
+
+        // Handle change in city select
+        citySelect.addEventListener('change', () => {
+            const selectedCity = parseInt(citySelect.value);
+            if (selectedCity) {
+                populateHotels(selectedCity);
+            } else {
+                hotelGroup.style.display = 'none';
+            }
+        });
+
+        // Handle click on Book Now button
+        bookNowBtn.addEventListener('click', () => {
+            // Show customer info form and hide booking form
+            bookingForm.style.display = 'none';
+            customerInfoForm.style.display = 'block';
+        });
+
+        // Handle form submission for demonstration
+        const customerForm = document.getElementById('customer-form');
+        customerForm.addEventListener('submit', event => {
+            event.preventDefault();
+
+            // Fetch values from the customer info form
+            const name = document.getElementById('name').value;
+            const fatherName = document.getElementById('father-name').value;
+            const passportNumber = document.getElementById('passport').value;
+            const cnicNumber = document.getElementById('cnic').value;
+            const address = document.getElementById('address').value;
+            const details = document.getElementById('details').value;
+
+            // Display the collected data (for demonstration)
+            console.log('Name:', name);
+            console.log('Father\'s Name:', fatherName);
+            console.log('Passport Number:', passportNumber);
+            console.log('CNIC Number:', cnicNumber);
+            console.log('Address:', address);
+            console.log('Additional Details:', details);
+
+            // You can process this data further (e.g., send it to a server)
+            // Example: fetch('/submit', { method: 'POST', body: JSON.stringify(formData) })
+        });
+    });
+</script>
+
+</body>
+</html>

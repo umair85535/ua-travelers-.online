@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Visa - Travel Agency</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #007BFF;
+            padding: 10px 0;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #FFC107;
+        }
+        .hero {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .services, .why-choose-us, .tourist-visas, .contact-form {
+            background-color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .services h2, .why-choose-us h2, .tourist-visas h2, .contact-form h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #007BFF;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .services ul, .why-choose-us ul, .tourist-visas ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .services li, .why-choose-us li, .tourist-visas li {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 45%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .services li:hover, .why-choose-us li:hover, .tourist-visas li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        .contact-form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group button {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .whatsapp i {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Visit Visas</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="air tickets.html">Air Tickets</a></li>
+            <li><a href="hotels booking.html">Hotels Booking</a></li>
+            <li><a href="umrah pakages.html">Umrah Packages</a></li>
+            <li><a href="Visit Visa.html">Visit Visa</a></li>
+            <li><a href="student visa.html">Student Visa</a></li>
+            <li><a href="work permit.html">Work Permit</a></li>
+            <li><a href="rent a car.html">Rent a Car</a></li>
+            <li><a href="contact us.html">Contact Us</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Visit Visa Services</h1>
+            <p>Plan your next visit abroad with our comprehensive visa services. Whether it's for tourism, business, or family visits, we assist you at every step.</p>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Our Visit Visa Services</h2>
+        <ul>
+            <li>Visa consultation</li>
+            <li>Application assistance</li>
+            <li>Document verification</li>
+            <li>Interview preparation</li>
+            <li>Follow-up services</li>
+        </ul>
+    </section>
+
+    <section class="why-choose-us">
+        <h2>Why Choose Us for Visit Visa?</h2>
+        <ul>
+            <li>Experienced visa consultants</li>
+            <li>High approval rates</li>
+            <li>Personalized guidance</li>
+            <li>Affordable service fees</li>
+            <li>Comprehensive support</li>
+        </ul>
+    </section>
+
+    <section class="tourist-visas">
+        <h2>Famous Tourist Countries Visas</h2>
+        <ul>
+            <li>USA</li>
+            <li>Canada</li>
+            <li>UK</li>
+            <li>Australia</li>
+            <li>New Zealand</li>
+            <li>Schengen Area (Europe)</li>
+            <li>Japan</li>
+            <li>Singapore</li>
+            <li>Malaysia</li>
+            <li>UAE</li>
+        </ul>
+    </section>
+
+    <section class="contact-form">
+        <h2>Contact Us</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Travel Agency Website. All rights reserved.</p>
+</footer>
+
+<!-- WhatsApp Contact Plugin -->
+<a href="https://wa.me/1234567890" class="whatsapp" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- FontAwesome for WhatsApp Icon -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</
